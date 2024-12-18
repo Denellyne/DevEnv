@@ -31,12 +31,18 @@ function setupProject () {
   touch ./src/main.cpp
   touch ./README.md
   cd ./src
-  printf "CFLAGS =\nINCLUDES =\n" >> ./makefile
+  printf "CFLAGS =\nINCLUDES =\nDEBUG = -g -Wall -Wextra -pedantic\n\n" >> ./makefile
   echo "% : %.cpp" >> ./makefile
   printf "\tg++ \$(CFLAGS) \$(INCLUDES) -o \$@ $<\n\n" >> ./makefile
+
   printf "run:\n" >> makefile
   printf "\t@echo \"Compiling...\"\n\tg++ \$(CFLAGS) \$(INCLUDES) -o main main.cpp\n" >> makefile
   printf "\t@cls\n\t@./main.exe\n\n" >> makefile
+
+  printf "debug:\n" >> makefile
+  printf "\t@echo \"Compiling...\"\n\tg++ \$(DEBUG) \$(CFLAGS) \$(INCLUDES) -o main main.cpp\n\n" >> makefile
+  
+
   printf "clean:\n\t@echo \"Deleting...\"\n\t@rm main" >> ./makefile
   printf "CompileFlags:\tAdd: [-std=c++20]" >> ./.clangd
 
