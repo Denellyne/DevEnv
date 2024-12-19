@@ -1,0 +1,6 @@
+[submodule "UTester"]
+	path = UTester
+	url = https://github.com/Denellyne/UTester
+[submodule "Function-Benchmarker"]
+	path = Function-Benchmarker
+	url = https://github.com/Denellyne/Function-Benchmarker
